@@ -21,6 +21,7 @@
     "moment": "~2.12",
     "less.js": "~2.6",
     "font-awesome": "~4.5",
-    "parse": "^1.8.5"
+    "parse": "^1.8.5",
+    "angular-messages": "^1.5.7"
   }
 }

@@ -1,16 +1,16 @@
-angular.module('platformSdk', ['ui.bootstrap', 'ui.router', 'ngAnimate']);
+angular.module('platformSdk', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'ngMessages']);
 
 angular.module('platformSdk').config(function($stateProvider, $urlRouterProvider) {
     // Initialize Parse with your Parse application javascript keys
     Parse.initialize('XgAml3HZ8fe4UGzOIC7uSEsVpXkxMtgJPfHI488N',
                    '2MiqqoJMZiKV1JwbuqYuPReMmfXFy2GGuFvdgXBl');
     Parse.serverURL = 'https://parseapi.back4app.com';
-   
+
 
     $stateProvider.state('initiatives', {
         url: '/initiatives',
         templateUrl: 'partial/initiatives/initiatives.html'
-    });    
+    });
     $stateProvider.state('friends', {
         url: '/friends',
         templateUrl: 'partial/friends/friends.html'
@@ -23,10 +23,14 @@ angular.module('platformSdk').config(function($stateProvider, $urlRouterProvider
         url: '/users/:id',
         templateUrl: 'partial/user/user.html'
     });
-    
+
     $stateProvider.state('profile', {
         url: '/users/:id/profile',
         templateUrl: 'partial/profile/profile.html'
+    });
+    $stateProvider.state('register', {
+        url: '/register',
+        templateUrl: 'partial/register/register.html'
     });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/');
