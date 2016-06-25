@@ -6,7 +6,7 @@ angular.module('platformSdk').factory('FileSrv',function() {
 
     files.getAll = function(){
         var query = new Parse.Query(Files);
-        return query.find();
+        return query.find();    
     }
 
     files.getById = function(id) {

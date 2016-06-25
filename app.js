@@ -30,8 +30,20 @@ angular.module('platformSdk').config(function($stateProvider, $urlRouterProvider
     });
     $stateProvider.state('files', {
         url: '/files',
-        templateUrl: 'partial/files/files.html'
+        templateUrl: 'partial/files/files.html',
+        resolve: {
+            filesObj: ['FileSrv', function (FileSrv){
+                return FileSrv.getAll();
+            }]
+        },
+        controller: ['$scope', 'filesObj', function($scope, filesObj){
+            $scope.files = [];
+            for (var i = 0; i < filesObj.length; i++) {
+                $scope.files[i] = {name: filesObj[i].get('name'), content: filesObj[i].get('content').url() };
+            }
+        }]
     });
+
     /* Add New States Above */
     $urlRouterProvider.otherwise('/');
 

@@ -1,10 +1,18 @@
 <div class="col-md-12" ng-controller="FilesCtrl">
 
-    <form name="fileForm" ng-submit="create(name,filemodel)" enctype="multipart/form-data">
+    <form name="fileForm" ng-submit="create(name)" enctype="multipart/form-data">
         <input type="text" id="nameInput" ng-model="name">
-        <input type="file" id="fileUpload" ng-model="filemodel">
+        <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"/>
         <div class="form-group">
-          <button type="submit" class="btn btn-default">SALVA ESSA BAGAÇA</button>
+          <button type="submit" class="btn btn-default">salvar arquivo</button>
         </div>
     </form>
+
+
+    <div ng-repeat="file in files">
+        <h1>{{file.name}}</h1>
+        <img src="{{file.content}}" alt="{{file.name}}" />
+    </div>
+
+
 </div>
