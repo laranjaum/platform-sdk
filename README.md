@@ -9,5 +9,6 @@ Frontend code for Trama Platform
  
 ## Boilerplates
  - https://github.com/cgross/generator-cg-angular
-### Running
+
+## Running
  just run `grunt serve` task
