@@ -28,6 +28,10 @@ angular.module('platformSdk').config(function($stateProvider, $urlRouterProvider
         url: '/users/:id/profile',
         templateUrl: 'partial/profile/profile.html'
     });
+    $stateProvider.state('register', {
+        url: '/register',
+        templateUrl: 'partial/register/register.html'
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/');
 

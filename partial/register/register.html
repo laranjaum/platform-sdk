@@ -1,0 +1,15 @@
+<div class="col-md-12" ng-controller="RegisterCtrl">
+    <form ng-submit="signUp(email, password)">
+        <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input class="form-control" ng-model="email" type="email" id="emailInput">
+        </div>
+        <div class="form-group">
+            <label for="passwordInput">Password</label>
+            <input class="form-control" ng-model="password" type="password" id="passwordInput">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Registrar</button>
+        </div>
+    </form>
+</div>
