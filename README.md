@@ -8,6 +8,10 @@ Frontend code for Trama Platform
 Install grunt-cli
 
 	npm install -g grunt-cli
+	
+Install bower
+
+    npm install -g bower
 
 Install Yeoman
 
@@ -16,6 +20,7 @@ Install Yeoman
 Install this project's dependencies
 
 	npm install
+	bower install
  
 ## Running
  just run `grunt serve` task
