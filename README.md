@@ -1,14 +1,24 @@
 # Platform-sdk
 Frontend code for Trama Platform
 
+# Developing
 
-## Dependencies
- - NPM
- - Grunt
- - Yeoman
+## Requirements
+
+Install grunt-cli
+
+	npm install -g grunt-cli
+
+Install Yeoman
+
+    npm install -g yo
+
+Install this project's dependencies
+
+	npm install
  
-## Boilerplates
- - https://github.com/cgross/generator-cg-angular
-
 ## Running
  just run `grunt serve` task
+
+## Boilerplates
+ - https://github.com/cgross/generator-cg-angular
