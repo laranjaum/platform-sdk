@@ -1,12 +1,28 @@
 <div class="col-md-12" ng-controller="RegisterCtrl">
-    <form ng-submit="signUp(email, password)">
+    <form ng-submit="signUp(name, surname, username, email, password)">
         <div class="form-group">
-            <label for="emailInput">Email</label>
+            <label for="nameInput">Nome</label>
+            <input class="form-control" ng-model="name" type="text" id="nameInput">
+        </div>
+        <div class="form-group">
+            <label for="surnameInput">Sobrenome</label>
+            <input class="form-control" ng-model="surname" type="text" id="surnameInput">
+        </div>
+        <div class="form-group">
+            <label for="usernameInput">Nome de usuário</label>
+            <input class="form-control" ng-model="username" type="text" id="usernameInput">
+        </div>
+        <div class="form-group">
+            <label for="emailInput">E-mail</label>
             <input class="form-control" ng-model="email" type="email" id="emailInput">
         </div>
         <div class="form-group">
-            <label for="passwordInput">Password</label>
+            <label for="passwordInput">Senha</label>
             <input class="form-control" ng-model="password" type="password" id="passwordInput">
+        </div>
+        <div class="form-group">
+            <label for="repeatPasswordInput">Repetir senha</label>
+            <input class="form-control" ng-model="repeatPassword" type="password" id="repeatPasswordInput">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-default">Registrar</button>
