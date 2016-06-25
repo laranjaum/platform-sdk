@@ -16,6 +16,10 @@ Install bower
 Install Yeoman
 
     npm install -g yo
+    
+Install Boilerplate
+
+    npm install -g generator-cg-angular
 
 Install this project's dependencies
 
