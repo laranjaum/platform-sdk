@@ -1,28 +1,98 @@
 <div class="col-md-12" ng-controller="RegisterCtrl">
-    <form ng-submit="signUp(name, surname, username, email, password)">
+    <form name="registerForm" ng-submit="signUp(name, surname, username, email, password)">
         <div class="form-group">
-            <label for="nameInput">Nome</label>
-            <input class="form-control" ng-model="name" type="text" id="nameInput">
+            <label class="control-label" for="nameInput">Nome</label>
+            <input
+                name="nameInput"
+                class="form-control"
+                ng-model="name"
+                type="text"
+                id="nameInput"
+                required>
+            <div
+                ng-messages="registerForm.nameInput.$error"
+                ng-if="registerForm.nameInput.$touched"
+                class="help-block"
+                role="alert">
+                <div ng-message="required">Por favor, preencha o nome.</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="surnameInput">Sobrenome</label>
-            <input class="form-control" ng-model="surname" type="text" id="surnameInput">
+            <label class="control-label" for="surnameInput">Sobrenome</label>
+            <input
+                name="surnameInput"
+                class="form-control"
+                ng-model="surname"
+                type="text"
+                id="surnameInput">
         </div>
         <div class="form-group">
-            <label for="usernameInput">Nome de usuário</label>
-            <input class="form-control" ng-model="username" type="text" id="usernameInput">
+            <label class="control-label" for="usernameInput">Nome de usuário</label>
+            <input
+                name="usernameInput"
+                class="form-control"
+                ng-model="username"
+                type="text"
+                minlength="6"
+                required
+                id="usernameInput">
+            <div
+                ng-messages="registerForm.usernameInput.$error"
+                ng-if="registerForm.usernameInput.$touched"
+                class="help-block"
+                role="alert">
+                <div ng-message="required">Por favor, preencha o nome de usuário.</div>
+                <div ng-message="minlength">O nome de usuário deve pelo menos 6 caracteres.</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="emailInput">E-mail</label>
-            <input class="form-control" ng-model="email" type="email" id="emailInput">
+            <label class="control-label" for="emailInput">E-mail</label>
+            <input
+                name="emailInput"
+                class="form-control"
+                ng-model="email"
+                type="email"
+                required
+                id="emailInput">
+            <div
+                ng-messages="registerForm.emailInput.$error"
+                ng-if="registerForm.emailInput.$touched"
+                class="help-block"
+                role="alert">
+                <div ng-message="required">Por favor, preencha o e-mail.</div>
+                <div ng-message="email">E-mail inválido.</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="passwordInput">Senha</label>
-            <input class="form-control" ng-model="password" type="password" id="passwordInput">
+            <label class="control-label" for="passwordInput">Senha</label>
+            <input
+                name="passwordInput"
+                class="form-control"
+                ng-model="password"
+                type="password"
+                required
+                minlength="6"
+                id="passwordInput">
+            <div
+                ng-messages="registerForm.passwordInput.$error"
+                ng-if="registerForm.passwordInput.$touched"
+                class="help-block"
+                role="alert">
+                <div ng-message="required">Por favor, preencha a senha.</div>
+                <div ng-message="minlength">Sua senha deve ter pelo menos 6 caracteres.</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="repeatPasswordInput">Repetir senha</label>
-            <input class="form-control" ng-model="repeatPassword" type="password" id="repeatPasswordInput">
+            <label class="control-label" for="repeatPasswordInput">Repetir senha</label>
+            <input
+                name="repeatPasswordInput"
+                class="form-control"
+                ng-model="repeatPassword"
+                type="password"
+                id="repeatPasswordInput">
+        </div>
+        <div ng-if="!match(repeatPassword, password)" class="help-block" role="alert">
+            Sua senha deve coincidir.
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-default">Registrar</button>
