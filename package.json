@@ -1,6 +1,9 @@
 {
   "name": "platformSdk",
   "version": "0.0.0",
+  "scripts": {
+    "start": "grunt serve"
+  },
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-angular-templates": "~0.5",
