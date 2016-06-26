@@ -15,8 +15,10 @@ angular.module('platformSdk').config(function($stateProvider, $urlRouterProvider
             }]
         },
         controller: ['$scope', 'initiativesObj', function($scope, initiativesObj){
-            console.log(initiativesObj);
-            $scope.initiatives = initiativesObj;
+            $scope.initiatives = [];
+            for (var i = 0; i < initiativesObj.length; i++) {
+                $scope.initiatives[i] = {name: initiativesObj[i].get('name') };
+            }
         }]
     });
 
