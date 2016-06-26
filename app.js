@@ -6,11 +6,20 @@ angular.module('platformSdk').config(function($stateProvider, $urlRouterProvider
                    '2MiqqoJMZiKV1JwbuqYuPReMmfXFy2GGuFvdgXBl');
     Parse.serverURL = 'https://parseapi.back4app.com';
 
-
     $stateProvider.state('initiatives', {
         url: '/initiatives',
-        templateUrl: 'partial/initiatives/initiatives.html'
+        templateUrl: 'partial/initiatives/initiatives.html',
+        resolve: {
+            initiativesObj: ['InitiativesSrv', function (InitiativesSrv){
+                return InitiativesSrv.getAll();
+            }]
+        },
+        controller: ['$scope', 'initiativesObj', function($scope, initiativesObj){
+            console.log(initiativesObj);
+            $scope.initiatives = initiativesObj;
+        }]
     });
+
     $stateProvider.state('friends', {
         url: '/friends',
         templateUrl: 'partial/friends/friends.html'
@@ -28,6 +37,7 @@ angular.module('platformSdk').config(function($stateProvider, $urlRouterProvider
         url: '/users/:id/profile',
         templateUrl: 'partial/profile/profile.html'
     });
+
     $stateProvider.state('register', {
         url: '/register',
         templateUrl: 'partial/register/register.html'
