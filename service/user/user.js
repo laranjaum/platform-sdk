@@ -1,6 +1,18 @@
 angular.module('platformSdk').factory('UserService',function() {
     var user = {};
 
+    user.getByUsername = function(username) {
+        var query = new Parse.Query(Parse.User);
+        query.equalTo('username', username);
+        return query.first();
+    };
+
+    user.getByEmail = function(email) {
+        var query = new Parse.Query(Parse.User);
+        query.equalTo('email', email);
+        return query.first();
+    };
+
     user.getCurrent = function() {
         return Parse.User.current();
     };
