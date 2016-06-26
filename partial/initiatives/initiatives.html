@@ -1,5 +1,13 @@
 <div class="col-md-12" ng-controller="InitiativesCtrl">
+
+    <form name="initiativesForm" ng-submit="search(query)">
+        <input type="text" id="queryInput" ng-model="query">
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">buscar</button>
+        </div>
+    </form>
+
     <div ng-repeat="initiative in initiatives">
-        <h1>{{initiative.name}}</h1>
+        <h1>{{initiative.get('name')}}</h1>
     </div>
 </div>

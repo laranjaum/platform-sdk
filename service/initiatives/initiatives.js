@@ -14,6 +14,26 @@ angular.module('platformSdk').factory('InitiativesSrv',function() {
         return query.get(id);
     }
 
+    initiatives.getByTags = function(tags) {
+        var Tag = Parse.Object.extend("Tag");
+        var tagInnerQuery = (new Parse.Query(Tag)).containsAll('name', tags);
+
+        var InitiativeTag = Parse.Object.extend("InitiativeTag");
+        var query = new Parse.Query(InitiativeTag);
+        var promise = query.include('initiative')
+                           .matchesQuery('tag', tagInnerQuery).find();
+
+        return promise.then(function(data){
+            var initiatives = [];
+            for (var i = 0; i < data.length; i++) {
+                initiatives.push(data[i].get('initiative'));
+            }
+            return initiatives;
+        }).catch(function(error){
+            console.error(error);
+        });
+    }
+
     initiatives.insert = function(initiative) {
         var initiatives = new Initiatives();
         return initiatives.save(initiative);
