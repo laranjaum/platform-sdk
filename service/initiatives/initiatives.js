@@ -16,7 +16,7 @@ angular.module('platformSdk').factory('InitiativesSrv',function() {
 
     initiatives.getByTags = function(tags) {
         var Tag = Parse.Object.extend("Tag");
-        var tagInnerQuery = (new Parse.Query(Tag)).containsAll('name', tags);
+        var tagInnerQuery = (new Parse.Query(Tag)).containedIn('name', tags);
 
         var InitiativeTag = Parse.Object.extend("InitiativeTag");
         var query = new Parse.Query(InitiativeTag);
