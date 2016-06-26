@@ -33,6 +33,7 @@
                 class="form-control"
                 ng-model="username"
                 type="text"
+                ng-blur="usernameTaken(username)"
                 minlength="6"
                 required
                 id="usernameInput">
@@ -43,7 +44,7 @@
                 role="alert">
                 <div ng-message="required">Por favor, preencha o nome de usuário.</div>
                 <div ng-message="minlength">O nome de usuário deve pelo menos 6 caracteres.</div>
-                <div ng-message="duplicate">Usuário já existe.</div>
+                <div ng-message="duplicate">Usuário já registrado.</div>
             </div>
         </div>
         <div class="form-group">
@@ -53,6 +54,7 @@
                 class="form-control"
                 ng-model="email"
                 type="email"
+                ng-blur="emailTaken(email)"
                 required
                 id="emailInput">
             <div
@@ -61,6 +63,7 @@
                 class="help-block"
                 role="alert">
                 <div ng-message="required">Por favor, preencha o e-mail.</div>
+                <div ng-message="duplicate">E-mail já registrado.</div>
                 <div ng-message="email">E-mail inválido.</div>
             </div>
         </div>
